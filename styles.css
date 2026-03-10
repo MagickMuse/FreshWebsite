@@ -152,56 +152,69 @@ em { font-style: italic; }
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--deep-red);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   white-space: nowrap;
 }
-.nav-logo:hover { color: var(--dark-red); }
+.nav-logo:hover { opacity: 0.8; }
 
-.nav-logo-symbol {
-  font-size: 1.25rem;
-  color: var(--muted-red);
-  opacity: 0.8;
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.1rem;
 }
 
 .nav-links a {
-  font-family: var(--font-heading);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-mid);
-  padding: 0.45rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-xs);
-  transition: all var(--ease);
+  transition: background var(--ease);
+  text-decoration: none;
   white-space: nowrap;
 }
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--deep-red);
   background: rgba(168, 34, 34, 0.07);
 }
 
-.nav-cta {
-  background: var(--deep-red) !important;
-  color: var(--cream) !important;
-  padding: 0.5rem 1.25rem !important;
-  border-radius: var(--radius-sm) !important;
-  margin-left: 0.5rem;
+.nav-item-title {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  transition: color var(--ease);
+  line-height: 1;
 }
-.nav-cta:hover {
-  background: var(--dark-red) !important;
-  color: var(--cream) !important;
+.nav-links a:hover .nav-item-title,
+.nav-links a.active .nav-item-title {
+  color: var(--deep-red);
+}
+
+.nav-item-sub {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  font-style: italic;
+  color: var(--muted-red);
+  margin-top: 3px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.nav-links a:hover .nav-item-sub,
+.nav-links a.active .nav-item-sub {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Mobile Toggle */
