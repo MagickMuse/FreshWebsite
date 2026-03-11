@@ -889,6 +889,10 @@ em { font-style: italic; }
   font-style: normal;
   margin-top: 0.25rem;
 }
+.testimonial-source {
+  opacity: 0.55;
+  letter-spacing: 0.08em;
+}
 
 /* ============================================
    GUIDE CARDS
