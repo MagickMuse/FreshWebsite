@@ -1252,6 +1252,14 @@ em { font-style: italic; }
 
   body { font-size: 17px; }
 
+  /* Remove backdrop-filter so position:fixed children use the viewport
+     as their containing block (not the 64px nav element) */
+  .nav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 241, 212, 0.98);
+  }
+
   .nav-links {
     display: none;
     position: fixed;
