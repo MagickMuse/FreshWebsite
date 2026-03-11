@@ -838,6 +838,59 @@ em { font-style: italic; }
 }
 
 /* ============================================
+   TESTIMONIALS
+   ============================================ */
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.testimonial-stars {
+  color: var(--muted-red);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+  font-style: italic;
+  margin: 0;
+  flex: 1;
+}
+
+.testimonial-author {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted-red);
+  font-style: normal;
+  margin-top: 0.25rem;
+}
+
+/* ============================================
    GUIDE CARDS
    ============================================ */
 
@@ -1326,5 +1379,6 @@ em { font-style: italic; }
 @media (max-width: 480px) {
   .grimoire-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
   .access-grid { grid-template-columns: 1fr; }
+  .testimonial-grid { grid-template-columns: 1fr; }
   .guide-grid { grid-template-columns: 1fr; }
 }
