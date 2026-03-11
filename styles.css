@@ -333,6 +333,12 @@ em { font-style: italic; }
   height: 1.5rem;
   opacity: 0.9;
 }
+.gc-icon .star-img {
+  display: block;
+  margin: 0 auto;
+  height: 2rem;
+  opacity: 0.9;
+}
 .hero-bg-ornament .star-img {
   height: 4rem;
   opacity: 0.12;
