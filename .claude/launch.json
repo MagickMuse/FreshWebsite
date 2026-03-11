@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static Site",
+      "runtimeExecutable": "/usr/bin/perl",
+      "runtimeArgs": ["/tmp/server.pl"],
+      "port": 3000
+    }
+  ]
+}
