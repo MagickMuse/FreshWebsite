@@ -112,4 +112,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Cards already have CSS transitions; no JS needed unless tooltips are added later.
 
+  /* ============================================
+     SCREENSHOT CAROUSEL
+     ============================================ */
+
+  const carouselEl = document.querySelector('#manuscript-carousel');
+  if (carouselEl) {
+    const track    = carouselEl.querySelector('.carousel-track');
+    const slides   = carouselEl.querySelectorAll('.carousel-slide');
+    const prevBtn  = carouselEl.querySelector('.carousel-prev');
+    const nextBtn  = carouselEl.querySelector('.carousel-next');
+    const dotsWrap = carouselEl.querySelector('.carousel-dots');
+
+    let current = 0;
+    const total = slides.length;
+
+    // Build dot navigation
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Slide ${i + 1} of ${total}`);
+      dot.setAttribute('role', 'tab');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dotsWrap.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === current);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    // Keyboard navigation
+    carouselEl.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    });
+
+    // Touch / swipe support
+    let touchStartX = 0;
+    carouselEl.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    carouselEl.addEventListener('touchend', (e) => {
+      const delta = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(delta) > 44) goTo(current + (delta > 0 ? 1 : -1));
+    }, { passive: true });
+  }
+
 });

@@ -344,6 +344,31 @@ em { font-style: italic; }
   opacity: 0.12;
 }
 
+/* Moon icon image */
+.moon-img {
+  height: 1em;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.75;
+}
+.ornament-line .moon-img,
+.footer-deco .moon-img,
+.footer-bottom-sym .moon-img {
+  height: 0.85em;
+  opacity: 0.5;
+}
+.gc-icon .moon-img {
+  display: block;
+  margin: 0 auto;
+  height: 1.5rem;
+  opacity: 0.9;
+}
+.hero-deco .moon-img {
+  height: 0.9em;
+  opacity: 0.75;
+}
+
 .sep-icon {
   color: var(--muted-red);
   font-size: 1rem;
@@ -627,11 +652,13 @@ em { font-style: italic; }
 }
 
 .hero-deco {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
   font-size: 1.4rem;
   color: var(--muted-red);
   opacity: 0.55;
-  letter-spacing: 0.6em;
   margin: 1.25rem 0;
 }
 
@@ -734,6 +761,14 @@ em { font-style: italic; }
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-faint);
+}
+
+/* Screenshot fills the content-visual container */
+.content-visual > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ============================================
@@ -1239,8 +1274,10 @@ em { font-style: italic; }
 .footer-deco {
   margin-top: 1.5rem;
   font-size: 1rem;
-  letter-spacing: 0.5em;
   color: rgba(255, 241, 212, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
 }
 
 .footer-col h5 {
@@ -1281,8 +1318,118 @@ em { font-style: italic; }
 
 .footer-bottom-sym {
   font-size: 1rem;
-  letter-spacing: 0.5em;
   color: rgba(255, 241, 212, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+}
+
+/* ============================================
+   SCREENSHOT CAROUSEL
+   ============================================ */
+
+.carousel {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+.carousel-track-wrap {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  object-fit: contain;
+  display: block;
+  background: var(--cream-light);
+}
+
+.carousel-caption {
+  background: rgba(44, 24, 16, 0.68);
+  color: var(--cream);
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.25rem;
+  text-align: center;
+  margin: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 241, 212, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
+  color: var(--deep-red);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all var(--ease);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.carousel-btn:hover {
+  background: var(--cream);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-50%) scale(1.07);
+}
+
+.carousel-prev { left: 0.85rem; }
+.carousel-next { right: 0.85rem; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 0;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border-light);
+}
+
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: all var(--ease);
+  padding: 0;
+}
+.carousel-dot.active {
+  background: var(--muted-red);
+  transform: scale(1.35);
+}
+.carousel-dot:hover:not(.active) {
+  background: var(--text-faint);
 }
 
 /* ============================================
